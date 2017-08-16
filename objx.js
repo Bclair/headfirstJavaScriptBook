@@ -7,3 +7,18 @@ var fiat = {
     convertible: false, 
     mileage: 8800
 };
+
+var miles = fiat.mileage;
+if (miles < 2000) {
+    buyIt();
+}
+
+fiat.mileage = 10000;
+fiat.needsWashing = true;
+
+if(fiat.year < 1965) {
+    classic = true;
+}
+for (var i = 0; i < fiat.passengers; i++) {
+    addPersonToCar();
+}
