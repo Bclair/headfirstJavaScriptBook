@@ -1,2 +1,2 @@
 # headfirstJavaScriptBook
-Working Through book
+Working Through book and all of the exercises.
