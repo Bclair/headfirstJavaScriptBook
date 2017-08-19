@@ -3,6 +3,29 @@
 <head>
     <meta charset="utf-8">
     <title>DOM PRACTICE</title>
+
+    <style>
+            .redtext { color: red; } 
+        </style>
+
+    <script>
+            function init() {
+                var planet = document.getElementById("greenplanet");
+                planet.innerHTML = "Red Alert: hit by phaser fire!"; 
+                planet.setAttribute("class", "redtext");
+                planet.setAttribute("style", "background-color: green;");
+                               
+                
+            
+               var dumbworld = document.getElementById("redplanet");
+               dumbworld.innerHTML = "Attack on Green Planet is a success!!";
+            
+               var turdland = document.getElementsByClassName("blueplanet");
+               turdland[0].style.backgroundColor = "red";
+            }
+            window.onload =init;
+            
+            </script>
 </head>
 <body>
     <p id="greenplanet">All is well</p>
@@ -10,18 +33,6 @@
     <p class="blueplanet">All systems A-OK!</p>
 
 
-<script>
-    
-   var planet = document.getElementById("greenplanet");
-   planet.innerHTML = "Red Alert: Hit by photon torpedos!!";
 
-   var dumbworld = document.getElementById("redplanet");
-   dumbworld.innerHTML = "Attack on Green Planet is a success!!";
-
-   var turdland = document.getElementsByClassName("blueplanet");
-   turdland[0].style.backgroundColor = "red";
-
-
-</script>
 
 </body>
