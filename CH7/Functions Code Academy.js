@@ -82,3 +82,154 @@ When the getRemainder runs, the function knows what numberOne and numberTwo equa
   takeOrder( "deep crust ", " topped with peppers");
   takeOrder( "thin crust ", " topped with peeps");
   takeOrder( "no crust ", " topped with peroxide");
+
+
+/*
+RETURNS
+Using console.log as the result of a function isn't the best use of a function. 
+The purpose of a function is to take some input, perform some task on that input, then return a result.
+
+To return a result, we can use the return keyword. Take a look at our function from the last exercise, now re-written slightly:
+*/
+function getRemainder(numberOne, numberTwo) {
+  return numberOne % numberTwo;
+}
+
+console.log(getRemainder(365, 27));
+// Output: 14
+
+/*
+Instead of using console.log inside the getRemainder function, we used the return keyword. 
+return will take the result of the math operation and give it back to whatever calls it.
+On the last line, we called the getRemainder function inside of a console.log statement, which outputted the result of 14.
+
+This code achieved the same output as before, however now our code is better. Why? If we wanted to use the getRemainder function in another place in our program, we could without printing the result to the console. Using return is generally a best practice when writing functions, as it makes your code more maintainable and flexible.
+1.
+Now that we have the pizza orders, you want to add them up to find the cost of the pizzas for the check. Let's imagine that each pizza is $7.50, no matter the topping and crust type.
+
+We will need to do three things to write this in JavaScript:
+
+1 Create a variable to hold the number of pizzas ordered.
+2 Whenever a pizza is ordered, add one to the number of pizzas ordered.
+3 Take the total number of pizzas and multiply them by 7.5, since each pizza is $7.50.
+
+Begin by creating a variable named orderCount set equal to 0 at the top of your code.
+
+Make sure to declare orderCount above the takeOrder function. We will increment the orderCount variable in the function in the next step.
+
+2.
+Inside the takeOrder function, set orderCount equal to orderCount plus 1, so that each time the takeOrder function runs, 1 is added to the orderCount.
+Stuck? Get a hint
+
+3.
+Now it's time to calculate the subtotal of the pizzas. This is the perfect job for a function.
+
+Declare a function named getSubTotal that has one parameter named itemCount.
+Stuck? Get a hint
+
+4.
+Inside the getSubTotal function's block, use return to output the itemCount multiplied by 7.5.
+Stuck? Get a hint
+
+5.
+On the last line of your program, after the takeOrder function calls, call the getSubTotal function inside a console.log statement.
+
+getSubTotal has a parameter that represents the amount of items ordered. Pass in the orderCount as an argument when making the function call.
+
+FINISHED BELOW
+*/
+  var orderCount = 0;
+  
+  function takeOrder(topping, crustType) {
+    console.log('Order: ' + crustType + ' crust topped with ' + topping);
+    orderCount = orderCount + 1;
+  }
+  
+  function getSubTotal(itemCount) {
+    return itemCount * 7.5;
+  }
+  
+  takeOrder('bacon', 'thin');
+  takeOrder('pepperoni', 'regular');
+  takeOrder('pesto', 'thin');
+  
+  console.log(getSubTotal(orderCount));
+
+
+
+/*
+return II
+In the last exercise, we pointed out that using return makes programs more maintainable and flexible, but how exactly?
+
+When functions return their value, we can use them together and inside one another. If our calculator needed to have a Celsius to Fahrenheit operation, we could write it with two functions like so:
+
+function multiplyByNineFifths(celsius) {
+  return celsius * (9/5);
+}
+
+function getFahrenheit(celsius) {
+  return multiplyByNineFifths(celsius) + 32;
+}
+
+console.log('The temperature is ' + getFahrenheit(15) + '°F');
+// Output: The temperature is 59°F
+Take a look at the getFahrenheit function. Inside of its block, we called multiplyByNineFifths and passed it the degrees in celsius. The multiplyByNineFifths function multiplied the celsius by (9/5). Then it returned its value so the getFahrenheit function could continue on to add 32 to it.
+
+Finally, on the last line, we interpolated the function call within a console.log statement. This works because getFahrenheit returns it's value.
+
+We can use functions to section off small bits of logic or tasks, then use them when we need to. Writing functions can help take large and difficult problems and break them into small and manageable problems.
+1.
+It's your job to calculate two more numbers for each order:
+
+A sales tax of 6% needs to be calculated for every full order. This should be based on the subtotal.
+The total, which is the subtotal plus tax, should also be computed.
+Let's start with calculating the tax. Under the getSubTotal function, declare a function named getTax. It should take no parameters.
+Stuck? Get a hint
+
+2.
+Inside the getTax function's block, multiply the subtotal times 6% (0.06). Make sure to return the result of this operation.
+Stuck? Get a hint
+
+3.
+Nice work! Now that you calculated the tax, declare another function named getTotal beneath the getTax function. The getTotal function should have no parameters.
+
+Inside the getTotal function's block, add the subtotal to the tax, then return the result.
+Stuck? Get a hint
+
+
+4.
+On the last line of the program, call the getTotal function inside of a console.log statement to view the result.
+5.
+Way to go! You wrote 4 functions from scratch, and even passed them into each other. That's incredible!
+
+Let's review what you just learned. Click 'Next' to continue.
+*/
+
+
+
+  var orderCount = 0;
+  
+  function takeOrder(topping, crustType) {
+    console.log('Order: ' + crustType + ' crust topped with ' + topping);
+    orderCount = orderCount + 1;
+  }
+  
+  function getSubTotal(itemCount) {
+    return itemCount * 7.5;
+  }
+  
+  function getTax() {
+    return getSubTotal(orderCount) * 0.06;
+  }
+  
+  function getTotal() {
+    return getSubTotal(orderCount) + getTax();
+  }
+  
+  
+  takeOrder('bacon', 'thin');
+  takeOrder('pepperoni', 'regular');
+  takeOrder('pesto', 'thin');
+  
+  console.log(getSubTotal(orderCount));
+  console.log(getTotal());
