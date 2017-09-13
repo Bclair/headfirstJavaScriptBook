@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <title>Flex Panels</title>
+        <meta charset='utf8'>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        
+      
+        
+    </head>
+
+    <body>
+<div class='wrapper'>
+  <div class='box box1'><p>Mega Man</p></div>
+  <div class='box box2'><p>Teenage Mutant Ninja Turtles</p></div>
+  <div class='box box3'><p>Kid Icarus</p></div>
+  <div class='box box4'><p>Contra</p></div>
+  <div class='box box5'><p>Skate or Die</p></div>
+  
+</div>
+
+<script>
+function duck(sound) {
+    this.sound = sound;
+    this.quack = function() {console.log(this.sound);}
+}
+
+var toy = new duck('quack quack');
+
+toy.quack();
+
+console.log(typeof toy);
+console.log(toy instanceof duck);
+
+
+</script>
+
+    </body>
+</html>
